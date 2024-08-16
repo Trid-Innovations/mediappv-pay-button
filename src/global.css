@@ -29,7 +29,7 @@
 }
 
 @layer components {
-  .trid__button {
-    @apply bg-primary-med text-white lg:py-2.5 lg:px-4 p-2 rounded-md border-primary-med text-xs lg:text-base  disabled:opacity-50;
+  .mediappv__button {
+    @apply flex items-center font-extrabold justify-center gap-2 bg-gradient-to-r w-full capitalize from-primary-mediappv to-[#CFD02B] p-3 text-center text-white;
   }
 }

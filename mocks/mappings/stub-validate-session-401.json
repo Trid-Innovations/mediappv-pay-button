@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/v1/validate-session",
+    "headers": {
+      "Authorization": {
+        "contains": "invalid"
+      }
+    }
+  },
+  "response": {
+    "status": 401,
+    "jsonBody": {
+      "error": {
+        "code": "UNHANDLED_ERROR",
+        "category": "UNKNOWN_ERROR"
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/v1/session",
+    "cookies": {
+      "MEDIAPPV_SESSION_TOKEN": {
+        "equalTo": "validMediappvSessionJWT"
+      }
+    }
+  },
+  "response": {
+    "delayDistribution": {
+      "type": "lognormal",
+      "median": 500,
+      "sigma": 0.4
+    },
+    "status": 200,
+    "jsonBody": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "settings": {
+        "returnUrl": "http://google.ca",
+        "credit": 100
+      }
+    },
+
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/api/v1/validate-session",
+    "headers": {
+      "Authorization": {
+        "equalTo": "Bearer validMediappvSessionJWT"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "expiresAt": "{{now offset='900 seconds'}}"
+    },
+    "transformers": ["response-template"],
+    "headers": {
+      "Content-Type": "application/json",
+      "Set-Cookie": [
+        "MEDIAPPV_SESSION_TOKEN=validMediappvSessionJWT; Expires=Tue, 19 Jan 2038 03:14:07 GMT; HttpOnly; Secure; SameSite=Strict; Path=/; Domain=.mediappv.io;"
+      ]
+    }
+  }
+}

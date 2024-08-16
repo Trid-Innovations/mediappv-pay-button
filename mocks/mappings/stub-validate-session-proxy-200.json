@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/v1/validate-session",
+    "headers": {
+      "Authorization": {
+        "contains": "."
+      }
+    }
+  },
+  "response": {
+    "proxyBaseUrl": "https://backendurl.com",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

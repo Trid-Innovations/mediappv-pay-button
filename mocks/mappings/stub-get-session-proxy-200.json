@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/v1/session",
+    "cookies": {
+      "MEDIAPPV_SESSION_TOKEN": {
+        "contains": "."
+      }
+    }
+  },
+  "response": {
+    "proxyBaseUrl": "https://backendurl.com",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
