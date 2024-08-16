@@ -1,7 +1,7 @@
 type Props = {
   styling: string;
   label: string;
-  cta: (val: string) => void;
+  cta: () => void;
 };
 function Button({ styling, cta, label }: Props) {
   return (
