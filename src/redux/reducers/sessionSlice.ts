@@ -14,9 +14,6 @@ export const sessionSlice = createSlice({
 const { getSession, setSession } = sessionSlice.actions;
 
 export const selectSession = (state: RootState) => state.session;
-export const selectCredits = (state: RootState) =>
-  state.session?.settings.credit;
-
 export { getSession, setSession };
 
 export default sessionSlice.reducer;
