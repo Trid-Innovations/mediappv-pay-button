@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import {
   SessionStatus,
@@ -6,16 +6,16 @@ import {
 } from "../../type/session.definition";
 
 const initialState: ValidateSessionState = {
-  status: SessionStatus.SESSION_PENDING_VALIDATION,
+  status: SessionStatus.NO_SESSION,
 };
 
 export const validateSessionSlice = createSlice({
   initialState,
-  name: "validateSession",
+  name: "sessionValidity",
   reducers: {
-    validateSession: (state, { payload }: PayloadAction<string>) => {},
+    validateSession: () => {},
     setSessionStatus: (state, action) => {
-      return action.payload;
+      state.status = action.payload;
     },
   },
 });

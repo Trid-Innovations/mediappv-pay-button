@@ -1,5 +1,5 @@
-import { Session, SessionStatus } from "../../type/session.definition";
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { Session } from "../../type/session.definition";
+import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 const initialState: Session | null = null;
 
@@ -7,13 +7,15 @@ export const sessionSlice = createSlice({
   name: "session",
   initialState,
   reducers: {
-    getSession: (state) => {},
-    setSession: (state, { payload }: PayloadAction<Session | null>) => {},
+    getSession: () => {},
+    setSession: (state, { payload }) => payload,
   },
 });
 const { getSession, setSession } = sessionSlice.actions;
 
 export const selectSession = (state: RootState) => state.session;
+export const selectCredits = (state: RootState) =>
+  state.session?.settings.credit;
 
 export { getSession, setSession };
 

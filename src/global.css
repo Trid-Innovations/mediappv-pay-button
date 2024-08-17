@@ -30,6 +30,9 @@
 
 @layer components {
   .mediappv__button {
-    @apply flex items-center font-extrabold justify-center gap-2 bg-gradient-to-r w-full capitalize from-primary-mediappv to-[#CFD02B] p-3 text-center text-white;
+    @apply rounded-lg flex gap-4 items-center font-extrabold justify-center bg-gradient-to-r w-full capitalize from-primary-mediappv to-[#CFD02B] py-3 text-center text-white;
+  }
+  .mediappv__centering {
+    @apply flex justify-center items-center;
   }
 }
