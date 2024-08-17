@@ -5,10 +5,10 @@ export const errorCode = {
 };
 
 export type Error = {
-  code: String;
-  message: String;
+  code: string;
+  message: string;
   fields: {
-    name: String;
-    message: String;
+    name: string;
+    message: string;
   };
 };

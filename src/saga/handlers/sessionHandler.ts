@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { call, put, takeLatest } from "redux-saga/effects";
-import { getSession, setSession } from "../../redux/reducers/sessionSlice";
+import { setSession } from "../../redux/reducers/sessionSlice";
 import {
   fetchSession,
   requestValidateSession,

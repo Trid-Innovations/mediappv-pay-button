@@ -1,8 +1,8 @@
 export type Session = {
-  firstName: String;
-  lastName: String;
+  firstName: string;
+  lastName: string;
   settings: {
-    returnUrl: String;
+    returnUrl: string;
     credit: number;
   };
 };

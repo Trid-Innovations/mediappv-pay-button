@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 export const postMessageActions = {
   SHOW_LOADER: "SHOW_LOADER",
   HIDE_LOADER: "HIDE_LOADER",
