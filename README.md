@@ -35,5 +35,5 @@ pnmp i
 pnpm run dev
 ```
 
-- You can now start coding and you can access the app here https://local.mediappv.io:3000/?mediappvSession=validMediappvSessionJWT
-  - To trigger an invalid session you can just remove the `mediappvSession` query param or provide a token with the keyword `invalid` like https://local.mediappv.io:3000/?mediappvSession=invalidMediappvSessionJWT
+- You can now start coding and you can access the app here https://local.mediappv.tech:3000/?mediappvSession=validMediappvSessionJWT
+  - To trigger an invalid session you can just remove the `mediappvSession` query param or provide a token with the keyword `invalid` like https://local.mediappv.tech:3000/?mediappvSession=invalidMediappvSessionJWT

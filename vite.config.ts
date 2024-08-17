@@ -12,7 +12,7 @@ export default defineConfig({
   server: {
     https: true,
     port: 3001,
-    host: "local.mediappv.io",
+    host: "local.mediappv.tech",
     proxy: {
       "/api": {
         target: "http://localhost:9000",

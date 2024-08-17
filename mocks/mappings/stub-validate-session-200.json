@@ -17,7 +17,7 @@
     "headers": {
       "Content-Type": "application/json",
       "Set-Cookie": [
-        "MEDIAPPV_SESSION_TOKEN=validMediappvSessionJWT; Expires=Tue, 19 Jan 2038 03:14:07 GMT; HttpOnly; Secure; SameSite=Strict; Path=/; Domain=.mediappv.io;"
+        "MEDIAPPV_SESSION_TOKEN=validMediappvSessionJWT; Expires=Tue, 19 Jan 2038 03:14:07 GMT; HttpOnly; Secure; SameSite=Strict; Path=/; Domain=.mediappv.tech;"
       ]
     }
   }
