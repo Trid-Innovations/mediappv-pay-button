@@ -5,6 +5,7 @@ import { selectSessionStatus } from "../../redux/reducers/validateSessionSlice";
 import { useEffect, useState } from "react";
 import { selectSession } from "../../redux/reducers/sessionSlice";
 import { showLoader } from "../../redux/reducers/loaderSlice";
+import { portalAppUrl } from "../../util";
 
 function MediaPpvButton() {
   const sessionStatus: SessionStatus = useSelector(selectSessionStatus);
@@ -16,7 +17,7 @@ function MediaPpvButton() {
       setButtonLabel("Validating session...");
     } else if (sessionStatus === SessionStatus.INVALID_SESSION) {
       setButtonLabel("requesting login...");
-      const url = "https://www.example.com"; // Replace with your desired URL
+      const url = portalAppUrl();
       const newTab = window.open(url, "_blank");
       dispatch(showLoader());
       if (newTab) {

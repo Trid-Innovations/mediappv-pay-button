@@ -44,3 +44,7 @@ export const getSessionTokenFromUrl = () => {
   const urlSearchParam = new URLSearchParams(document.location.search);
   return urlSearchParam.get(mediappvSessionQueryParamKeyName) as string;
 };
+
+export const portalAppUrl = () => {
+  return import.meta.env.VITE_MEDIAPPV_PORTAL_URL;
+};
