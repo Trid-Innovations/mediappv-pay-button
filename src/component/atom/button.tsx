@@ -11,6 +11,7 @@ function Button({ label }: Props) {
   const loader = useSelector(selectLoader);
   const dispatch = useDispatch();
   const onPayButtonClick = () => {
+    dispatch(validateSession());
     dispatch(setPaymentResult(PaymentResult.INIT));
   };
 

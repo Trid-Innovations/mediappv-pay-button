@@ -26,7 +26,6 @@ import {
 import { authorizeAndCapture } from "../../requests/paymentClient";
 
 export function* handleAuthorizeAndCapture({ payload }: any) {
-  debugger;
   try {
     yield call(sendShowLoader);
     yield put(showLoader());

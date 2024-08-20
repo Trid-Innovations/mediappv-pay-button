@@ -5,7 +5,7 @@ const backendApiTimeout = import.meta.env.VITE_BACKEND_API_TIMEOUT
   ? import.meta.env.VITE_BACKEND_API_TIMEOUT
   : 60000;
 
-const baseURL = "https://api.mediappv.tech:3003";
+const baseURL = import.meta.env.VITE_API_URL;
 const axiosInstance = axios.create({
   timeout: backendApiTimeout,
   baseURL,

@@ -45,6 +45,8 @@ export const mediappvProviderIdQueryParamKeyName = "providerId";
 export const mediappvArticleCostQueryParamKeyName = "articleCost";
 export const mediappvArticleLinkParamKeyName = "articleLink";
 export const mediappvProviderNameParamKeyName = "providerName";
+export const mediappvRequestedForPaymentQueryParamKeyName =
+  "requestedForPayment";
 export const getSessionTokenFromUrl = () => {
   const urlSearchParam = new URLSearchParams(document.location.search);
   return urlSearchParam.get(mediappvSessionQueryParamKeyName) as string;
@@ -64,11 +66,15 @@ export const getPaymentDetailsFromUrl = () => {
   const providerId = urlSearchParam.get(
     mediappvProviderIdQueryParamKeyName
   ) as string;
+  const requestedForPayment = urlSearchParam.get(
+    mediappvRequestedForPaymentQueryParamKeyName
+  ) as string;
   return {
     articleLink,
     providerId,
     articleCost,
     providerName,
+    requestedForPayment,
   };
 };
 
