@@ -26,7 +26,7 @@ pnmp i
     pnpm run mockserver:start
     ```
 
-  - Mocked API will be available here `http://localhost:9000/api/v1`
+  - Mocked API will be available here `http://localhost:9000/api`
   - To see all registred mappings you can visit http://localhost:9000/\_\_admin/mappings
 
 - Start the app in dev mode

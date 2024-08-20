@@ -3,6 +3,7 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import createSagaMiddleware from "redux-saga";
 import sessionReducer from "./reducers/sessionSlice";
 import validateSessionReducer from "./reducers/validateSessionSlice";
+import paymentReducer from "./reducers/paymentSlice";
 import loaderReducer from "./reducers/loaderSlice";
 import { watcherSaga } from "../saga/rootSaga";
 
@@ -19,6 +20,7 @@ export const store = configureStore({
     session: sessionReducer,
     sessionValidity: validateSessionReducer,
     loader: loaderReducer,
+    payment: paymentReducer,
   },
 });
 

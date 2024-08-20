@@ -6,7 +6,11 @@ import {
 } from "../../requests/sessionClient";
 
 import { AxiosResponse } from "axios";
-import { isTimeExpires, removeSearchQueriesFromURL } from "../../util";
+import {
+  isTimeExpires,
+  portalAppUrl,
+  removeSearchQueriesFromURL,
+} from "../../util";
 import {
   postMessageActions,
   sendHideLoader,
@@ -39,7 +43,12 @@ export function* handleValidateSession() {
   } catch (error: any) {
     yield put(hideLoader());
     yield put(setSessionStatus(SessionStatus.INVALID_SESSION));
-    yield call(sendMessage, { action: postMessageActions.SESSION_INVALID });
+    yield call(sendMessage, {
+      action: postMessageActions.REDIRECT_LOGIN,
+      payload: {
+        url: portalAppUrl(),
+      },
+    });
     yield call(sendMessage, {
       action: postMessageActions.ERROR,
       payload: error,

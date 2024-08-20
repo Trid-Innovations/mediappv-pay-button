@@ -1,7 +1,7 @@
 {
   "request": {
     "method": "POST",
-    "url": "/api/v1/validate-session",
+    "url": "/validate-session",
     "cookies": {
       "MEDIAPPV_SESSION_TOKEN": {
         "equalTo": "validMediappvSessionJWT"

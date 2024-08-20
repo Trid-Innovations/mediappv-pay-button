@@ -1,0 +1,33 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/authorize-and-capture",
+    "cookies": {
+      "MEDIAPPV_SESSION_TOKEN": {
+        "equalTo": "validMediappvSessionJWT"
+      }
+    }
+  },
+  "response": {
+    "delayDistribution": {
+      "type": "lognormal",
+      "median": 1000,
+      "sigma": 0.4
+    },
+    "status": 200,
+    "jsonBody": {
+      "result": "SUCCESS",
+      "details": {
+        "providerId": 123,
+        "article": {
+          "link": "google.com",
+          "creditsCost": 2
+        }
+      }
+    },
+
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

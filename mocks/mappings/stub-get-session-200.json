@@ -1,7 +1,7 @@
 {
   "request": {
     "method": "GET",
-    "url": "/api/v1/session",
+    "url": "/session",
     "cookies": {
       "MEDIAPPV_SESSION_TOKEN": {
         "equalTo": "validMediappvSessionJWT"
@@ -18,9 +18,43 @@
     "jsonBody": {
       "firstName": "John",
       "lastName": "Doe",
+      "email": "john@example.io",
+      "photoUrl": "http://example.io",
       "settings": {
         "returnUrl": "http://google.ca",
-        "credit": 100
+        "credits": 100,
+        "articles": [
+          {
+            "provider": {
+              "id": "23",
+              "name": "Forbes magazine"
+            },
+            "credit": "2",
+            "purchaseDate": "2024-08-19T04:52:40.000+00:00",
+            "transactionId": "ADAS123432GHJGFGF",
+            "link": "https://www.forbes.com/sites/antoinegara/2020/10/05/how-cathie-wood-beat-wall-street-by-betting-tesla-is-worth-more-than-1-trillion/"
+          },
+          {
+            "provider": {
+              "id": "20",
+              "name": "NY Time"
+            },
+            "credit": "5",
+            "purchaseDate": "2024-08-19T04:52:40.000+00:00",
+            "transactionId": "ADAS123432AAPTER",
+            "link": "https://www.forbes.com/sites/antoinegara/2020/10/05/how-cathie-wood-beat-wall-street-by-betting-tesla-is-worth-more-than-1-trillion/"
+          },
+          {
+            "provider": {
+              "id": "2",
+              "name": "Wall Street Journal"
+            },
+            "credit": "1",
+            "purchaseDate": "2024-08-19T04:52:40.000+00:00",
+            "transactionId": "ADAS12343DDAPTER",
+            "link": "https://www.forbes.com/sites/antoinegara/2020/10/05/how-cathie-wood-beat-wall-street-by-betting-tesla-is-worth-more-than-1-trillion/"
+          }
+        ]
       }
     },
 

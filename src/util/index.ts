@@ -40,11 +40,42 @@ export const isTimeExpires = (expiresAt: Date) => {
 };
 
 export const mediappvSessionQueryParamKeyName = "mediappvSession";
+export const mediappvPaymentResultQueryParamKeyName = "mediappvPaymentResult";
+export const mediappvProviderIdQueryParamKeyName = "providerId";
+export const mediappvArticleCostQueryParamKeyName = "articleCost";
+export const mediappvArticleLinkParamKeyName = "articleLink";
+export const mediappvProviderNameParamKeyName = "providerName";
 export const getSessionTokenFromUrl = () => {
   const urlSearchParam = new URLSearchParams(document.location.search);
   return urlSearchParam.get(mediappvSessionQueryParamKeyName) as string;
 };
 
+export const getPaymentDetailsFromUrl = () => {
+  const urlSearchParam = new URLSearchParams(document.location.search);
+  const articleLink = urlSearchParam.get(
+    mediappvArticleLinkParamKeyName
+  ) as string;
+  const articleCost = urlSearchParam.get(
+    mediappvArticleCostQueryParamKeyName
+  ) as string;
+  const providerName = urlSearchParam.get(
+    mediappvProviderNameParamKeyName
+  ) as string;
+  const providerId = urlSearchParam.get(
+    mediappvProviderIdQueryParamKeyName
+  ) as string;
+  return {
+    articleLink,
+    providerId,
+    articleCost,
+    providerName,
+  };
+};
+
 export const portalAppUrl = () => {
   return import.meta.env.VITE_MEDIAPPV_PORTAL_URL;
+};
+
+export const appUrl = () => {
+  return import.meta.env.VITE_APP_URL;
 };

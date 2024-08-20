@@ -1,7 +1,7 @@
 {
   "request": {
     "method": "GET",
-    "url": "/api/v1/session",
+    "url": "/session",
     "cookies": {
       "MEDIAPPV_SESSION_TOKEN": {
         "contains": "."

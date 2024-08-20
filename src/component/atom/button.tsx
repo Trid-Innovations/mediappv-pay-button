@@ -1,19 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectLoader } from "../../redux/reducers/loaderSlice";
+import { selectLoader, showLoader } from "../../redux/reducers/loaderSlice";
 import Loader from "./loader";
 import { validateSession } from "../../redux/reducers/validateSessionSlice";
-
+import { PaymentResult } from "../../type/payment.definition";
+import { setPaymentResult } from "../../redux/reducers/paymentSlice";
 type Props = {
   label: string;
 };
 function Button({ label }: Props) {
   const loader = useSelector(selectLoader);
   const dispatch = useDispatch();
-  const validatingSession = () => {
-    dispatch(validateSession());
+  const onPayButtonClick = () => {
+    dispatch(setPaymentResult(PaymentResult.INIT));
   };
+
   return (
-    <button className="mediappv__button relative" onClick={validatingSession}>
+    <button className="mediappv__button relative" onClick={onPayButtonClick}>
       {label}
       {loader && <Loader />}
     </button>

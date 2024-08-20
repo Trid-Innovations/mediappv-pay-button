@@ -5,28 +5,29 @@ import { selectSessionStatus } from "../../redux/reducers/validateSessionSlice";
 import { useEffect, useState } from "react";
 import { selectSession } from "../../redux/reducers/sessionSlice";
 import { showLoader } from "../../redux/reducers/loaderSlice";
-import { portalAppUrl } from "../../util";
+import { appUrl, getPaymentDetailsFromUrl, portalAppUrl } from "../../util";
+import { selectPaymentResult } from "../../redux/reducers/paymentSlice";
 
 function MediaPpvButton() {
   const sessionStatus: SessionStatus = useSelector(selectSessionStatus);
   const [buttonLabel, setButtonLabel] = useState<string>("Pay with mediaPPV");
   const session = useSelector(selectSession) as unknown as Session;
+  const paymentResult = useSelector(selectPaymentResult);
   const dispatch = useDispatch();
   useEffect(() => {
     if (sessionStatus === SessionStatus.SESSION_PENDING_VALIDATION) {
       setButtonLabel("Validating session...");
-    } else if (sessionStatus === SessionStatus.INVALID_SESSION) {
+    } else if (
+      sessionStatus === SessionStatus.INVALID_SESSION &&
+      paymentResult === "INIT"
+    ) {
       setButtonLabel("requesting login...");
-      const url = portalAppUrl();
-      const newTab = window.open(url, "_blank");
-      dispatch(showLoader());
-      if (newTab) {
-        newTab.focus();
-      } else {
-        console.error("Failed to open new tab");
-      }
     } else if (sessionStatus === SessionStatus.VALID_SESSION) {
-      setButtonLabel("Checking credits...");
+      if (paymentResult === "SUCCESS") {
+        setButtonLabel("Checking credits...");
+      } else {
+        setButtonLabel("Payment Successful...");
+      }
     } else {
       setButtonLabel("Pay with mediaPPV");
     }
