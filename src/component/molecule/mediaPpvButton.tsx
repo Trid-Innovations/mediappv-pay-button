@@ -2,11 +2,13 @@ import { useDispatch, useSelector } from "react-redux";
 import Button from "../atom/button";
 import { Session, SessionStatus } from "../../type/session.definition";
 import { selectSessionStatus } from "../../redux/reducers/validateSessionSlice";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { selectSession } from "../../redux/reducers/sessionSlice";
 import { showLoader } from "../../redux/reducers/loaderSlice";
 import { appUrl, getPaymentDetailsFromUrl, portalAppUrl } from "../../util";
 import { selectPaymentResult } from "../../redux/reducers/paymentSlice";
+import PaymentSuccessCheck from "../atom/paymentSuccessCheck";
+import { PaymentResult } from "../../type/payment.definition";
 
 function MediaPpvButton() {
   const sessionStatus: SessionStatus = useSelector(selectSessionStatus);
@@ -36,7 +38,15 @@ function MediaPpvButton() {
     }
   }, [sessionStatus, session, dispatch]);
 
-  return <Button label={buttonLabel} />;
+  return (
+    <Fragment>
+      {paymentResult === PaymentResult.SUCCESS ? (
+        <PaymentSuccessCheck />
+      ) : (
+        <Button label={buttonLabel} />
+      )}
+    </Fragment>
+  );
 }
 
 export default MediaPpvButton;

@@ -16,7 +16,7 @@ function Button({ label }: Props) {
   };
 
   return (
-    <button className="mediappv__button relative" onClick={onPayButtonClick}>
+    <button className="relative mediappv__button" onClick={onPayButtonClick}>
       {label}
       {loader && <Loader />}
     </button>
