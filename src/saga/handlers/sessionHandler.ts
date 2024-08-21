@@ -43,11 +43,14 @@ export function* handleValidateSession() {
   } catch (error: any) {
     yield put(hideLoader());
     yield put(setSessionStatus(SessionStatus.INVALID_SESSION));
+
+    const payload = {
+      url: portalAppUrl(),
+    };
+    console.log({ payload });
     yield call(sendMessage, {
       action: postMessageActions.REDIRECT_LOGIN,
-      payload: {
-        url: portalAppUrl(),
-      },
+      payload,
     });
     yield call(sendMessage, {
       action: postMessageActions.ERROR,
