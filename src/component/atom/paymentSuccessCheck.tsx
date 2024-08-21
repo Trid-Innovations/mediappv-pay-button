@@ -3,14 +3,13 @@ import Confetti from "react-confetti";
 
 import useWindowSize from "react-use/lib/useWindowSize";
 function PaymentSuccessCheck() {
-  const [isPaymentSuccessful, setIsPaymentSuccessful] = useState(false);
   const { width, height } = useWindowSize();
   const [showConfetti, setShowConfetti] = useState(false);
   useEffect(() => {
     // Simulate payment process
     setTimeout(() => {
       setShowConfetti(true);
-    }, 1000);
+    }, 30);
   }, []);
 
   useEffect(() => {

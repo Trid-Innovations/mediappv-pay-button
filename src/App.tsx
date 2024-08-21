@@ -46,9 +46,9 @@ function App() {
       };
       if (requestedForPayment === "true") {
         dispatch(setPaymentResult(PaymentResult.INIT));
+        dispatch(validateSession());
       }
-      console.log({ payload });
-      dispatch(validateSession());
+
       dispatch(setPaymentDetails(payload));
     }
   }, [dispatch]);

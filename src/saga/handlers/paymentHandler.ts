@@ -24,21 +24,27 @@ import {
   setPaymentResult,
 } from "../../redux/reducers/paymentSlice";
 import { authorizeAndCapture } from "../../requests/paymentClient";
+import { PaymentResult } from "../../type/payment.definition";
 
 export function* handleAuthorizeAndCapture({ payload }: any) {
   try {
     yield call(sendShowLoader);
     yield put(showLoader());
     const response: AxiosResponse = yield call(authorizeAndCapture, payload);
-    yield put(setPaymentResult(response.data));
+    yield put(setPaymentResult(PaymentResult.SUCCESS));
+    debugger;
 
     yield call(sendMessage, {
       action: postMessageActions.PAYMENT_RESULT,
-      payload: { paymentResult: response.data },
+      payload: {
+        paymentResult: PaymentResult.SUCCESS,
+        remainingCredits: response.data.remainingCredits,
+      },
     });
   } catch (error: unknown) {
     yield call(sendHideLoader);
     yield put(hideLoader());
+    yield put(setPaymentResult(PaymentResult.FAIL));
     yield call(sendMessage, {
       action: postMessageActions.ERROR,
       payload: { error },
