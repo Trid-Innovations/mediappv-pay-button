@@ -32,8 +32,6 @@ export function* handleAuthorizeAndCapture({ payload }: any) {
     yield put(showLoader());
     const response: AxiosResponse = yield call(authorizeAndCapture, payload);
     yield put(setPaymentResult(PaymentResult.SUCCESS));
-    debugger;
-
     yield call(sendMessage, {
       action: postMessageActions.PAYMENT_RESULT,
       payload: {
