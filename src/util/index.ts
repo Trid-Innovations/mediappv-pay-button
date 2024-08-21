@@ -81,7 +81,3 @@ export const getPaymentDetailsFromUrl = () => {
 export const portalAppUrl = () => {
   return import.meta.env.VITE_MEDIAPPV_PORTAL_URL;
 };
-
-export const appUrl = () => {
-  return import.meta.env.VITE_APP_URL;
-};
